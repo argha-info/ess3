@@ -7,6 +7,10 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\HomeAboutController;
+use App\Http\Controllers\Admin\NewArrivalsController;
+
+
 
 
 /*
@@ -53,4 +57,18 @@ Route::prefix('admin')->middleware('checkadminauth')->group(function(){
     Route::get('product/all-data', [ProductController::class, 'show'])->name('admin.product-all-data');
     Route::get('banner/create', [ProductController::class, 'create'])->name('admin.product.create');
 
+    //////////////////////////////// Home About //////////////////////////////////////////////////
+    Route::get('homeabout', [HomeAboutController::class, 'index'])->name('admin.homeabout');
+    Route::get('homeabout/all-data', [HomeAboutController::class, 'show'])->name('homeabout-all-data');
+    Route::get('homeabout/create', [HomeAboutController::class, 'create'])->name('admin.homeabout.create');
+    Route::get('homeabout/edit/{id}', [HomeAboutController::class, 'edit'])->name('admin.homeabout.update');
+    Route::post('homeabout-add-edit', [HomeAboutController::class, 'addEditHomeAbout'])->name('admin.addEditHomeAbout');
+    Route::post('homeabout/delete', [HomeAboutController::class, 'delete'])->name('admin.homeabout-delete');
+    ////////////////////////////////// New Arrivals //////////////////////////////////////////////////
+    Route::get('newarrivals', [NewArrivalsController::class, 'index'])->name('admin.newarrivals');
+    Route::get('newarrivals/all-data', [NewArrivalsController::class, 'show'])->name('newarrivals-all-data');
+    Route::get('newarrivals/create', [NewArrivalsController::class, 'create'])->name('admin.newarrivals.create');
+    Route::get('newarrivals/edit/{id}', [NewArrivalsController::class, 'edit'])->name('admin.newarrivals.update');
+    Route::post('newarrivals-add-edit', [NewArrivalsController::class, 'addEditNewArrivals'])->name('admin.addEditNewArrivals');
+    Route::post('newarrivals/delete', [NewArrivalsController::class, 'delete'])->name('admin.newarrivals-delete');
 });

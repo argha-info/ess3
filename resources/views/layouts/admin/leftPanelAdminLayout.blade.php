@@ -28,7 +28,7 @@
               </p>
             </a>
           </li>
-          <li class="nav-item has-treeview @if($active == 'banner') menu-open @endif">
+          <li class="nav-item has-treeview @if($active == 'banner' || $active == 'homeabout'||$active == 'newarrivals') menu-open @endif">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-user-graduate"></i>
                 <p> Homepage Manage
@@ -41,6 +41,18 @@
                 <a href="{{route('admin.banner')}}" class="nav-link @if($subActive == 'banner_list' || $subActive=='add_banner') active @endif">
                   <i class="nav-icon fas fa-th-list"></i>
                   <p> Banner Section</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('admin.homeabout')}}" class="nav-link @if($subActive == 'homeabout_list' || $subActive=='add_homeabout' || $subActive=='edit_homeabout') active @endif">
+                  <i class="fas fa-th-list"></i>
+                  <p>HomeAbout Section</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('admin.newarrivals')}}" class="nav-link @if($subActive == 'newarrivals_list' || $subActive=='add_NewArrivals' || $subActive=='edit_NewArrivals') active @endif">
+                  <i class="fas fa-th-list"></i>
+                  <p>NewArrivals Section</p>
                 </a>
               </li>
               {{-- <li class="nav-item">
