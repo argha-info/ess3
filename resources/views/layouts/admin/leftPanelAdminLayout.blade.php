@@ -1,17 +1,17 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="{{ url('/') }}" class="brand-link" target="_blank">
-     
+
       <img  src="{{ asset('front/assets/img/logo.png') }}" alt="{{ $title ?? config('app.name') }}" width="50px"/>
-  
+
       <span class="brand-text">ESS3</span>
-    </a> 
+    </a>
 
     <!-- Sidebar -->
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
       <!-- Sidebar Menu -->
-     
+
 
 
 
@@ -28,6 +28,31 @@
               </p>
             </a>
           </li>
+          <li class="nav-item has-treeview @if($active == 'banner') menu-open @endif">
+            <a href="#" class="nav-link">
+              <i class="fas fa-user-graduate"></i>
+              <p>
+                Homepage Manage
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+
+              <li class="nav-item">
+                <a href="{{route('admin.banner')}}" class="nav-link @if($subActive == 'banner_list' || $subActive=='add_banner') active @endif">
+                  <i class="fas fa-th-list"></i>
+                  <p>Banner Section</p>
+                </a>
+              </li>
+              {{-- <li class="nav-item">
+                <a href="" class="nav-link @if($subActive == 'Minority') active @endif">
+                  <i class="fas fa-th-list"></i>
+                  <p>Minority List</p>
+                </a>
+              </li> --}}
+            </ul>
+          </li>
+
           <li class="nav-item">
               <a href="{{route('admin.category')}}"
                   class="nav-link <?php if($active == 'category') echo 'active';?>">
@@ -37,7 +62,7 @@
                   </p>
               </a>
           </li>
-      
+
        </ul>
      </nav>
       <!-- /.sidebar-menu -->
