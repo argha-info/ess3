@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Banner;
+use App\Models\HomeAbout;
+use App\Models\NewArrivals;
+
+
 
 class HomeController extends Controller
 {
@@ -25,6 +29,10 @@ class HomeController extends Controller
     public function index()
     {
         $bannerList = Banner::orderBy('created_at', 'desc')->get();
-        return view('home',compact('bannerList'));
+        $homeabout  = HomeAbout::orderBy('created_at', 'desc')->get();
+        $newarrivals = NewArrivals::orderBy('created_at', 'desc')->get();
+        return view('home',compact('bannerList','homeabout','newarrivals'));
     }
+
+
 }
