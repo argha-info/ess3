@@ -16,7 +16,7 @@
               @include('messages.flash_messages')
                 <form class="" id="formBanner" action="" enctype='multipart/form-data' method="Post">
                 @csrf
-               <input type="hidden" value="{{isset($bannerInfo) ? encrypt($bannerInfo->bannerId) : 0}}" name="id">
+               <input type="hidden" value="{{isset($bannerInfo) ? encrypt($bannerInfo->id) : 0}}" name="id">
                <input type="hidden" value="{{isset($bannerInfo) ? 'edit' : 'add'}}" name="opt_type">
                 <div class="card-header">
                   <h3 class="card-title">{{ $title ?? '' }}</h3>

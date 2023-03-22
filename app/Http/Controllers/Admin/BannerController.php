@@ -120,16 +120,15 @@ class BannerController extends Controller
         }else{
             DB::beginTransaction();
             try{
-
-                $input  = $request->except(['_token','opt_type']);
                 if($request->opt_type=='edit'){
-                    $input  = $request->except(['_token','opt_type','old_banner']);
+                    $input  = $request->except(['_token','opt_type','old_banner', 'id']);
                 }
-                $input['bannerId'] = Helpers::createID('banner');
+                if($request->opt_type=='add'){
+                    $input  = $request->except(['_token','opt_type','old_banner','id']);
+                    $input['bannerid'] = Helpers::createID('banner');
+                }
+                
                 $input['banner_link'] = ($request->banner_link!='')?$request->banner_link:'';
-
-                //$input  = $request->except(['_token','opt_type']);
-
 
                 $old_banner = '';
                 if($request->has('old_banner')){
@@ -155,8 +154,9 @@ class BannerController extends Controller
 
                     $input['updated_at']   = date('Y-m-d H:i:s');
 
-                    $advertisement = Banner::find($id);
-                    $advertisement->update($input);
+                    // $advertisement = Banner::find($id);
+                    // $advertisement->update($input);
+                    $update = Banner::where('id',$id)->update($input);
 
                     $message = 'Banner updated Successfully.';
                 }else{

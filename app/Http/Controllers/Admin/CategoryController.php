@@ -10,6 +10,7 @@ use App\Models\Category;
 use DataTables;
 use DB;
 use Auth;
+use Image;
 use App\Http\Helpers;
 use Carbon;
 use Session;
@@ -119,7 +120,7 @@ class CategoryController extends Controller
                     $filename = $banner->getClientOriginalName();
                     $newFileName = time(). '_' .str_replace(' ', '_', $filename);
                     $path = public_path('/uploads/category/');
-                    $croppedBanner = Image::make($banner->getRealPath())->fit(1160, 488);
+                    $croppedBanner = Image::make($banner->getRealPath());
                     $uploadSuccess = $croppedBanner->save($path.'/'.$newFileName,99);
 
                     if($old_banner !='' && file_exists(public_path('uploads/category/'.$old_banner))){

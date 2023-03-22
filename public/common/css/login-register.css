@@ -1,0 +1,358 @@
+@charset "utf-8";
+/* CSS Document */
+/************Kartick 22.10.20************/
+.login-page {
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+.login-page .container-login100 {
+    width: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0;
+    background: #f2f2f2;
+}
+.wrap-login100 {
+    width: 1170px;
+    background: #fff;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    flex-direction: row-reverse;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 4px 10px #cecece;
+    -moz-box-shadow: 0 4px 10px #cecece;
+    box-shadow: 0 4px 10px #cecece;
+    overflow: hidden;
+}
+.login-page .login100-form {
+    width: 60%;
+    padding: 30px 50px;
+}
+.login-page .login100-more {
+    width: 40%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    z-index: 1;
+    padding: 30px 40px;
+    display: flex;
+    align-items: center;
+}
+.login-page .login100-more::before {
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.7);
+    opacity: 0.8;
+}
+.login-page .login-title h2 {
+    font-size: 35px;
+    font-weight: 700;
+    color: #2d2d2d;
+    line-height: 1;
+    text-transform: initial;
+}
+.login100-more .login-title-left h2 {
+    font-size: 30px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 44px;
+    text-transform: initial;
+    text-align: center;
+    padding-bottom: 5px;
+}
+.login-page .form-group {
+    position: relative;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.login-page .icon-sty {
+    float: right;
+    position: absolute;
+    right: 2px;
+    top: 12px;
+    font-size: 12px;
+    color: #cca440;
+}
+.login-page .form-control {
+    display: block;
+    height: 36px;
+    width: 100%;
+    border: none;
+    border-radius: 0 !important;
+    font-size: 14px;
+    font-weight: 300;
+    padding: 0;
+    background-color: transparent;
+    box-shadow: none;
+    border-bottom: 1px solid #757575;
+    padding-right: 20px;
+}
+.login-page .form-highlight {
+    position: absolute;
+    height: 60%;
+    width: auto;
+    top: 25%;
+    left: 0;
+    pointer-events: none;
+    opacity: 0.4;
+}
+.login-page .form-bar {
+    position: relative;
+    display: block;
+    width: 100%;
+}
+.login-page label {
+    position: initial;
+    top: -18px;
+    color: #999;
+    font-size: 12px;
+    font-weight: 300;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+.login-page .float-label {
+    left: 0;
+    top: 7px;
+    font-size: 12px;
+    pointer-events: none;
+    position: absolute;
+    font-weight: 600;
+}
+.login-page .form-control:focus~.float-label {
+    top: -18px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.login-page .form-control:focus~label {
+    color: #cca440;
+}
+.login-page .pws-text {
+    text-align: center;
+    display: block;
+    font-size: 11px;
+}
+.login-page .btn-center {
+    float: none;
+    width: 100%;
+    display: block;
+    margin-bottom: 0px;
+    text-align: center;
+}
+.loginbtn {
+    background: #cca440;
+    color: #fff;
+    letter-spacing: 3px;
+    line-height: 44px;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 0 40px;
+    -moz-border-radius: 30px;
+    -webkit-border-radius: 30px;
+    border-radius: 30px;
+    margin-top: 25px;
+}
+.loginbtn:hover, .loginbtn:active, .loginbtn:focus {
+    box-shadow: none;
+    background: #2d2d2d;
+    border-color: #2d2d2d;
+    color: #fff;
+    outline: 0;
+}
+.btn:not(:disabled):not(.disabled) {
+    cursor: pointer;
+}
+.btn:not(:disabled):not(.disabled).active, .btn:not(:disabled):not(.disabled):active {
+    background-image: none;
+}
+.frgPassWord {
+    color: #fff;
+    text-decoration: underline;
+    margin-top: -15px;
+}
+.frgPassWord:hover {
+	color: #cca440;
+}
+.login100-more .form-control {
+    display: block;
+    height: 36px;
+    width: 100%;
+    border: none;
+    border-radius: 0 !important;
+    font-size: 14px;
+    font-weight: 300;
+    padding: 0;
+    background-color: transparent;
+    box-shadow: none;
+    border-bottom: 1px solid #ffffff;
+    padding-right: 20px;
+    color: #fff;
+}
+.login-page .form-highlight {
+    position: absolute;
+    height: 60%;
+    width: auto;
+    top: 25%;
+    left: 0;
+    pointer-events: none;
+    opacity: 0.4;
+}
+.login-page .form-bar {
+    position: relative;
+    display: block;
+    width: 100%;
+}
+.login100-more .float-label, .login100-more .pws-text {
+    color: #fff;
+}
+.login-page .float-label {
+    left: 0;
+    top: 7px;
+    font-size: 12px;
+    pointer-events: none;
+    position: absolute;
+    font-weight: 600;
+}
+.login100-more .form-control:focus~label {
+    color: #fff;
+}
+.login-title-left  p{
+	color: #fff;
+}
+.login100-more .icon-sty i {
+    color: #fff;
+}
+.login-page .form-group .help-block {
+    position: absolute;
+    color: #c12020;
+    font-weight: 600;
+	font-size: 13px;
+}
+.login-page .has-error {
+    border: 0px solid red !important;
+}
+
+
+
+
+
+
+.login-page input[type="checkbox"] {
+    display: none;
+}
+.login-page input[type="checkbox"]+label:last-child {
+    margin-bottom: 0;
+    margin-top: 20px;
+}
+.login-page input[type="checkbox"]+label {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-top: 20px;
+    font-size: 14px;
+    line-height: 24px;
+    color: #fff;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+.login-page input[type="checkbox"]+label:before {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #fff;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: .6;
+    -webkit-transition: all .12s, border-color .08s;
+    transition: all .12s, border-color .08s;
+}
+.login-page input[type="checkbox"]:checked+label:before {
+    width: 10px;
+    top: -5px;
+    left: 5px;
+    border-radius: 0;
+    opacity: 1;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+
+
+
+
+
+.loginArea {
+    width: 100%;
+    padding: 30px;
+}
+.logForm {
+    max-width: 600px;
+    margin: 0 auto;
+}
+.logForm .input-1 {
+    border: 1px solid #909090;
+    background-color: #FFF;
+    height: 50px;
+    border-radius: 0;
+    -webkit-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+    padding: 0 10px;
+    width: 100%;
+    color: #000;
+}
+.logForm .fundMeBtn {
+    min-width: auto;
+    height: 50px;
+    line-height: 33px;
+    text-align: center;
+    background: #cca440;
+    color: #fff;
+    border-radius: 0;
+    font-size: 18px;
+    border: 1px solid #cca440;
+    padding: 0 30px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+	transition: 0.5s;
+}
+.logForm .fundMeBtn:hover{
+	background: #2d2d2d;
+	border: 1px solid #2d2d2d;
+	transition: 0.5s;
+}
+
+
+
+/************End Kartick 22.10.20************/

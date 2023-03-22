@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\BannerController;
+use App\Http\Controllers\Admin\ProductController;
 
 
 /*
@@ -46,4 +47,10 @@ Route::prefix('admin')->middleware('checkadminauth')->group(function(){
     Route::get('banner/edit/{id}', [BannerController::class, 'edit'])->name('admin.banner.update');
     Route::post('banner-add-edit', [BannerController::class, 'addEditBanner'])->name('admin.addEditBanner');
     Route::post('banner/delete', [BannerController::class, 'delete'])->name('admin.banner-delete');
+
+    /////////////////////////////  Manage Product Section //////////////////////////////////////////
+    Route::get('product', [ProductController::class, 'index'])->name('admin.product');
+    Route::get('product/all-data', [ProductController::class, 'show'])->name('admin.product-all-data');
+    Route::get('banner/create', [ProductController::class, 'create'])->name('admin.product.create');
+
 });

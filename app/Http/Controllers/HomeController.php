@@ -24,7 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $bannerList = Banner::orderBy('created_at', 'desc')->get();
+        $bannerList = Banner::where('status', 1)->orderBy('created_at', 'desc')->get();
         return view('home',compact('bannerList'));
     }
 }

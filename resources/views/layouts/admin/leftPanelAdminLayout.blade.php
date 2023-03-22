@@ -30,18 +30,17 @@
           </li>
           <li class="nav-item has-treeview @if($active == 'banner') menu-open @endif">
             <a href="#" class="nav-link">
-              <i class="fas fa-user-graduate"></i>
-              <p>
-                Homepage Manage
-                <i class="fas fa-angle-left right"></i>
+              <i class="nav-icon fas fa-user-graduate"></i>
+                <p> Homepage Manage
+                  <i class="fas fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
 
               <li class="nav-item">
                 <a href="{{route('admin.banner')}}" class="nav-link @if($subActive == 'banner_list' || $subActive=='add_banner') active @endif">
-                  <i class="fas fa-th-list"></i>
-                  <p>Banner Section</p>
+                  <i class="nav-icon fas fa-th-list"></i>
+                  <p> Banner Section</p>
                 </a>
               </li>
               {{-- <li class="nav-item">
@@ -61,6 +60,26 @@
                       Category List
                   </p>
               </a>
+          </li>
+          <li class="nav-item has-treeview @if($active == 'product') menu-open @endif">
+              <a href="#"
+                  class="nav-link">
+                  <i class="nav-icon far fa-image"></i>
+                  <p>
+                      Manage Product
+                      <i class="fas fa-angle-left right"></i>
+                  </p>
+              </a>
+              <ul class="nav nav-treeview">
+
+                <li class="nav-item">
+                  <a href="{{route('admin.product')}}" class="nav-link @if($subActive == 'product_list') active @endif">
+                    <i class="nav-icon fas fa-th-list"></i>
+                    <p> View Product</p>
+                  </a>
+                </li>
+              
+              </ul>
           </li>
 
        </ul>
