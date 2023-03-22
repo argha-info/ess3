@@ -55,7 +55,7 @@ Route::prefix('admin')->middleware('checkadminauth')->group(function(){
     /////////////////////////////  Manage Product Section //////////////////////////////////////////
     Route::get('product', [ProductController::class, 'index'])->name('admin.product');
     Route::get('product/all-data', [ProductController::class, 'show'])->name('admin.product-all-data');
-    Route::get('banner/create', [ProductController::class, 'create'])->name('admin.product.create');
+    Route::get('product/create', [ProductController::class, 'create'])->name('admin.product.create');
 
     //////////////////////////////// Home About //////////////////////////////////////////////////
     Route::get('homeabout', [HomeAboutController::class, 'index'])->name('admin.homeabout');
