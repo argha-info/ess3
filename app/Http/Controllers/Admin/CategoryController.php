@@ -43,7 +43,7 @@ class CategoryController extends Controller
         return Datatables::of($data)
             ->addIndexColumn()
             ->addColumn('parent', function($row) {
-                
+
                 return 'ok';
             })
             ->addColumn('action', function($row) {
