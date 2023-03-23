@@ -6,18 +6,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Category extends Model
+class Size extends Model
 {
     use HasFactory, SoftDeletes;
-    protected $table = 'categories';
+    protected $table = 'sizes';
     protected $fillable = [
-        "catid",
-        "parent_id",
-        "category_name",
-        "category_description",
-        "image",
+        "size_name",
         "status",
-        "created_by",
         "created_at",
         "updated_at"
     ];

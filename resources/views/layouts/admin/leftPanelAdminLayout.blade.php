@@ -45,20 +45,20 @@
               </li>
               <li class="nav-item">
                 <a href="{{route('admin.homeabout')}}" class="nav-link @if($subActive == 'homeabout_list' || $subActive=='add_homeabout' || $subActive=='edit_homeabout') active @endif">
-                  <i class="fas fa-th-list"></i>
-                  <p>HomeAbout Section</p>
+                  <i class="nav-icon fas fa-th-list"></i>
+                  <p> HomeAbout Section</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{route('admin.newarrivals')}}" class="nav-link @if($subActive == 'newarrivals_list' || $subActive=='add_NewArrivals' || $subActive=='edit_NewArrivals') active @endif">
-                  <i class="fas fa-th-list"></i>
-                  <p>NewArrivals Section</p>
+                  <i class="nav-icon fas fa-th-list"></i>
+                  <p> NewArrivals Section</p>
                 </a>
               </li>
               {{-- <li class="nav-item">
                 <a href="" class="nav-link @if($subActive == 'Minority') active @endif">
-                  <i class="fas fa-th-list"></i>
-                  <p>Minority List</p>
+                  <i class="nav-icon fas fa-th-list"></i>
+                  <p> Minority List</p>
                 </a>
               </li> --}}
             </ul>
@@ -85,7 +85,7 @@
               <ul class="nav nav-treeview">
 
                 <li class="nav-item">
-                  <a href="{{route('admin.product')}}" class="nav-link @if($subActive == 'product_list') active @endif">
+                  <a href="{{route('admin.product')}}" class="nav-link @if($subActive == 'product_list' || $subActive == 'add_product') active @endif">
                     <i class="nav-icon fas fa-th-list"></i>
                     <p> View Product</p>
                   </a>
