@@ -12,7 +12,7 @@
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item"><a href="/dashboard">Home</a></li>
                         <li class="breadcrumb-item active">{{ $title ?? '' }}</li>
                     </ol>
                 </div><!-- /.col -->
@@ -29,8 +29,36 @@
                 <div class="card">
                     <div class="card-header">
                         <h3 class="card-title">{{ $title ?? '' }}</h3>
-                        <a href="{{ route('admin.product.create') }}" class="float-right btn btn-info add_role">Add
-                            {{ $title ?? '' }}</a>
+                        <a href="{{ route('admin.product.addVarient', $encryptedId) }}" class="float-right btn btn-info add_role">Add Varient</a>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="">Product Name</label>
+                                <p>{{$product->product_name}}</p>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="">Short Description</label>
+                                <p>{{$product->short_description}}</p>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="">Product Specification</label>
+                                <p>{{$product->product_specification}}</p>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="">Manufacturer Details</label>
+                                <p>{{$product->manufacturer_details}}</p>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="">Regular Price</label>
+                                <p>{{$product->regular_price}}</p>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="">Discount Price</label>
+                                <p>{{$product->discount_price}}</p>
+                            </div>
+                        </div>
+                                
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">

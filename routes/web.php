@@ -59,6 +59,11 @@ Route::prefix('admin')->middleware('checkadminauth')->group(function(){
     Route::get('product', [ProductController::class, 'index'])->name('admin.product');
     Route::get('product/all-data', [ProductController::class, 'show'])->name('admin.product-all-data');
     Route::get('product/create', [ProductController::class, 'create'])->name('admin.product.create');
+    Route::post('product/store', [ProductController::class, 'store'])->name('admin.product.store');
+    Route::get('product/view-details/{id}', [ProductController::class, 'viewDetails'])->name('admin.product.viewDetails');
+
+    Route::get('product/add-varient/{id}', [ProductController::class, 'addVarient'])->name('admin.product.addVarient');
+
 
     //////////////////////////////// Home About //////////////////////////////////////////////////
     Route::get('homeabout', [HomeAboutController::class, 'index'])->name('admin.homeabout');
