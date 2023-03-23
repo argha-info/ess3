@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\Banner;
 use App\Models\HomeAbout;
 use App\Models\NewArrivals;
+use App\Models\About;
+
+
 
 
 
@@ -33,6 +36,16 @@ class HomeController extends Controller
         $newarrivals = NewArrivals::orderBy('created_at', 'desc')->get();
         return view('home',compact('bannerList','homeabout','newarrivals'));
     }
+     /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function about()
+    {
+        $about = About::where('status', 1)->orderBy('id','desc')->get();
+        return view('about',compact('about'));
 
+    }
 
 }

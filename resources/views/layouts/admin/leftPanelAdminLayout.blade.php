@@ -90,9 +90,29 @@
                     <p> View Product</p>
                   </a>
                 </li>
-              
+
               </ul>
           </li>
+          <li class="nav-item has-treeview @if($active == 'about') menu-open @endif">
+            <a href="#"
+                class="nav-link">
+                <i class="nav-icon far fa-image"></i>
+                <p>
+                    Manage About
+                    <i class="fas fa-angle-left right"></i>
+                </p>
+            </a>
+            <ul class="nav nav-treeview">
+
+              <li class="nav-item">
+                <a href="{{route('admin.about')}}" class="nav-link @if($subActive == 'about_list' || $subActive == 'add_About'||$subActive == 'edit_About') active @endif">
+                  <i class="nav-icon fas fa-th-list"></i>
+                  <p>First Section</p>
+                </a>
+              </li>
+
+            </ul>
+        </li>
 
        </ul>
      </nav>

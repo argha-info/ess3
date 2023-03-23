@@ -9,6 +9,8 @@ use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\HomeAboutController;
 use App\Http\Controllers\Admin\NewArrivalsController;
+use App\Http\Controllers\Admin\AboutController;
+
 
 
 
@@ -25,6 +27,7 @@ use App\Http\Controllers\Admin\NewArrivalsController;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/about', [HomeController::class, 'about'])->name('about');
 
 // Auth::routes();
 
@@ -71,4 +74,11 @@ Route::prefix('admin')->middleware('checkadminauth')->group(function(){
     Route::get('newarrivals/edit/{id}', [NewArrivalsController::class, 'edit'])->name('admin.newarrivals.update');
     Route::post('newarrivals-add-edit', [NewArrivalsController::class, 'addEditNewArrivals'])->name('admin.addEditNewArrivals');
     Route::post('newarrivals/delete', [NewArrivalsController::class, 'delete'])->name('admin.newarrivals-delete');
+    ///////////////////////////////// About Page /////////////////////////////////////////////////////
+    Route::get('about', [AboutController::class, 'index'])->name('admin.about');
+    Route::get('about/all-data', [AboutController::class, 'show'])->name('about-all-data');
+    Route::get('about/create', [AboutController::class, 'create'])->name('admin.about.create');
+    Route::get('about/edit/{id}', [AboutController::class, 'edit'])->name('admin.about.update');
+    Route::post('about/add-edit', [AboutController::class, 'addEditAbout'])->name('admin.addEditAbout');
+    Route::post('about/delete', [AboutController::class, 'delete'])->name('admin.about-delete');
 });
