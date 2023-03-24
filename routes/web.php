@@ -11,7 +11,7 @@ use App\Http\Controllers\Admin\HomeAboutController;
 use App\Http\Controllers\Admin\NewArrivalsController;
 use App\Http\Controllers\Admin\AboutController;
 
-
+use App\Http\Controllers\FrontendProductController;
 
 
 
@@ -28,7 +28,7 @@ use App\Http\Controllers\Admin\AboutController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
-
+Route::get('/product-list', [FrontendProductController::class, 'index'])->name('product-list');
 // Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
