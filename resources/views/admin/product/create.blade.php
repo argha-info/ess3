@@ -31,6 +31,15 @@
                                                 placeholder="Enter product name" required>
                                         </div>
                                         <div class="form-group">
+                                            <label for="content">Product Type <strong style="color:red">*</strong></label>
+                                            <select class="form-control" name="product_type_id" id="product_type_id" required>
+                                                <option value="">Select Product Type</option>
+                                                @foreach($types as $type)
+                                                    <option value="{{ $type->id }}">{{ $type->type }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
                                             <label for="content">Short Description <strong style="color:red">*</strong></label>
                                             <textarea name="short_description" class="form-control" rows="4"
                                                 placeholder="Enter short description" id="short_description"

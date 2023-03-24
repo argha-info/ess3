@@ -1,7 +1,4 @@
 @extends('layouts.admin.adminLayout')
-@push('stylesheet')
-<link rel="stylesheet" href="{{ asset('common/css/custom.css') }}">
-@endpush
 @section('adminContent')
 
 <!-- Content Wrapper. Contains page content -->
@@ -16,8 +13,7 @@
                         <!-- /.card-header -->
                         <!-- form start -->
                         @include('messages.flash_messages')
-                        <form class="" action="{{ route('admin.product.store') }}" enctype='multipart/form-data'
-                            method="POST">
+                        <form id="newForm" action="{{ route('admin.product.storeVarient', $encryptedId) }}" enctype='multipart/form-data' method="POST">
                             @csrf
 
                             <div class="card-header">
@@ -29,7 +25,7 @@
                                         <div class="form-group">
                                             <label for="title">Select Color <strong style="color:red">*</strong></label>
                                             <select class="form-control" name="color_id" id="color_id" required>
-                                                <option value="">Select Color</option>
+                                                <option value="">Select color</option>
                                                 @foreach($colors as $color)
                                                     <option value="{{ $color->id }}">{{ $color->color_name }}</option>
                                                 @endforeach
@@ -40,12 +36,12 @@
                                         <div class="form-group">
                                             <label>Select Size <strong style="color:red">*</strong></label>
                                             <select class="form-control" name="size_id" id="size_id" multiple required>
-                                                <option value="">Select Size</option>
+                                                <option value="">Select size</option>
                                                 @foreach($sizes as $size)
                                                     <option value="{{ $size->id }}">{{ $size->size_name }}</option>
                                                 @endforeach
                                             </select>
-                                            <small class="text-muted">(Hold Ctrl key to select multiple)</small>
+                                            <small class="text-muted">(Press Ctrl key to select multiple values)</small>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -73,20 +69,13 @@
                                         <div class="form-group">
                                             <label for="drpStatus">Status <strong style="color:red">*</strong></label>
                                             <select class="form-control" name="status" id="status" required>
-                                                <option value="">Select Status</option>
-                                                <option value="1">
-                                                    Active</option>
-                                                <option value="0">
-                                                    Inactive</option>
+                                                <option value="">Select status</option>
+                                                <option value="1">Active</option>
+                                                <option value="0">Inactive</option>
                                             </select>
                                         </div>
                                     </div>
-
                                 </div>
-
-
-
-
                             </div>
                             <div class="card-footer text-center">
                                 <button class="btn ripple btn-primary btnDataSave" type="submit">Add Product</button>
@@ -105,21 +94,24 @@
 </div>
 <!-- /.content-wrapper -->
 
-
+@push('stylesheet')
+<link rel="stylesheet" href="{{ asset('common/css/custom.css') }}">
+@endpush
 @push('scripts')
 <script src="{{ asset('common/js/custom.js') }}"></script>
 <script>
 $(function() {
-    $("#formCategory").validate({
+    $("#newForm").validate({
 
         submitHandler: function(form) {
             $('#btnDataSave').text('Saving...');
-            var frm = $('#formCategory');
+            var frm = $('#newForm');
             var formData = new FormData(frm[0]);
+            var url = frm.attr('action');
             //formData.append('file', $('input[type=file]')[0].files[0]);
 
             $.ajax({
-                url: '{{route('admin.addEditCategory')}}',
+                url: url,
                 type: 'POST',
                 dataType: 'json',
                 data: formData,
@@ -134,7 +126,7 @@ $(function() {
                         });
                         //swal(data.success_message);
                         setTimeout(function() {
-                            window.location = "{{url('admin/category')}}";
+                            window.location = "{{route('admin.product.viewDetails', $encryptedId)}}";
                         }, 2000);
                     } else {
                         swal({
