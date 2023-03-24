@@ -96,9 +96,10 @@
           <li class="nav-item has-treeview @if($active == 'about') menu-open @endif">
             <a href="#"
                 class="nav-link">
-                <i class="nav-icon far fa-image"></i>
+                <i class="nav-icon far fa-address-card"></i>
+
                 <p>
-                    Manage About
+                    Manage Aboutpage
                     <i class="fas fa-angle-left right"></i>
                 </p>
             </a>
@@ -112,6 +113,34 @@
               </li>
 
             </ul>
+            <li class="nav-item">
+                <a href="{{route('admin.color')}}"
+                    class="nav-link <?php if($active == 'color') echo 'active';?>">
+                    <i class="nav-icon far fa-image"></i>
+                    <p>
+                        Color
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{route('admin.size')}}"
+                    class="nav-link <?php if($active == 'size') echo 'active';?>">
+                    <i class="nav-icon far fa-image"></i>
+                    <p>
+                        Size
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{route('admin.contactus')}}"
+                    class="nav-link <?php if($active == 'contactus') echo 'active';?>">
+                    <i class="nav-icon far fa-image"></i>
+                    <p>
+                        Contact Us Manage
+                    </p>
+                </a>
+            </li>
+
         </li>
 
        </ul>

@@ -90,10 +90,8 @@
 
                     <div class="col-lg-3 col-md-6 footer-info">
                         <h3>About Us</h3>
-                        <p>Lorem ipsum dolor sit amete, consectetur adipisicing sed do eiusmod tempor icididunt ut
-                            labore etel dolore magna aliqua. enim adminim veniam, done quisnostrud exercitation
-                            ullommodo.
-                        </p>
+                        <p>{{$about->content}}</p>
+
 
                     </div>
 
@@ -119,16 +117,15 @@
 
                     <div class="col-lg-3 col-md-6 footer-info">
                         <h4>Get In Touch</h4>
-                        <p><img src="{{asset('front/assets/img/ic-1.png')}}" alt="Ic"> Krish Impex, 147/A/2/17A , Girish
-                            Ghosh Road, Ghusuri
-                            Howrah – 711207, West Bengal,
-                            INDIA</p>
-                        <p><img src="{{asset('front/assets/img/ic-2.png')}}" alt="Ic"><a href="tel:06291579939"> 062915
-                                79939</a></p>
-                        <p><img src="{{asset('front/assets/img/ic-3.png')}}" alt="Ic"><a
-                                href="mailto:emailaddress@domain.com"> emailaddress@domain.com</a></p>
-                        <p><img src="{{asset('front/assets/img/ic-4.png')}}" alt="Ic"><a href="https://ess3.co.in">
-                                ess3.co.in</a></p>
+                        <p><img src="{{ asset('front/assets/img/ic-1.png') }}" alt="Ic">
+                        {{$contact->location}}
+                        </p>
+                        <p><img src="{{ asset('front/assets/img/ic-2.png') }}" alt="Ic"><a
+                                href="tel:06291579939">{{$contact->company_phone}}</a></p>
+                        <p><img src="{{ asset('front/assets/img/ic-3.png') }}" alt="Ic"><a
+                                href="mailto:emailaddress@domain.com"> {{$contact->email}}</a></p>
+                        <p><img src="{{ asset('front/assets/img/ic-4.png') }}" alt="Ic"><a
+                                href="https://ess3.co.in"> {{$contact->weblink}}</a></p>
 
 
                     </div>
@@ -140,10 +137,10 @@
         <div class="container">
             <div class="copyright">
                 <div class="social-links mb-3">
-                    <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-                    <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-                    <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
-                    <a href="#" class="youtube"><i class="fa fa-youtube"></i></a>
+                    <a href="{{$contact->facebook_link}}" class="facebook"><i class="fa fa-facebook"></i></a>
+                    <a href="{{$contact->twitter_link}}" class="twitter"><i class="fa fa-twitter"></i></a>
+                    <a href="{{$contact->instagram_link}}" class="instagram"><i class="fa fa-instagram"></i></a>
+                    <a href="{{$contact->youtube_link}}" class="youtube"><i class="fa fa-youtube"></i></a>
                 </div>
                 &copy; Copyright 2023 <strong><span>ESS3</span></strong>. All Rights Reserved.
             </div>

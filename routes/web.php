@@ -10,6 +10,12 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\HomeAboutController;
 use App\Http\Controllers\Admin\NewArrivalsController;
 use App\Http\Controllers\Admin\AboutController;
+use App\Http\Controllers\Admin\ColorController;
+use App\Http\Controllers\Admin\SizeController;
+use App\Http\Controllers\Admin\ContactUsController;
+
+
+
 
 use App\Http\Controllers\FrontendProductController;
 
@@ -87,4 +93,25 @@ Route::prefix('admin')->middleware('checkadminauth')->group(function(){
     Route::get('about/edit/{id}', [AboutController::class, 'edit'])->name('admin.about.update');
     Route::post('about/add-edit', [AboutController::class, 'addEditAbout'])->name('admin.addEditAbout');
     Route::post('about/delete', [AboutController::class, 'delete'])->name('admin.about-delete');
+    //////////////////////////////// Colour ///////////////////////////////////////////////////////////
+    Route::get('color', [ColorController::class, 'index'])->name('admin.color');
+    Route::get('color/all-data', [ColorController::class, 'show'])->name('color-all-data');
+    Route::get('color/create', [ColorController::class, 'create'])->name('admin.color.create');
+    Route::get('color/edit/{id}', [ColorController::class, 'edit'])->name('admin.color.update');
+    Route::post('color/add-edit', [ColorController::class, 'addEditColor'])->name('admin.addEditColor');
+    Route::post('color/delete', [ColorController::class, 'delete'])->name('admin.color-delete');
+    //////////////////////////////// Colour ///////////////////////////////////////////////////////////
+    Route::get('size', [SizeController::class, 'index'])->name('admin.size');
+    Route::get('size/all-data', [SizeController::class, 'show'])->name('size-all-data');
+    Route::get('size/create', [SizeController::class, 'create'])->name('admin.size.create');
+    Route::get('size/edit/{id}', [SizeController::class, 'edit'])->name('admin.size.update');
+    Route::post('size/add-edit', [SizeController::class, 'addEditSize'])->name('admin.addEditSize');
+    Route::post('size/delete', [SizeController::class, 'delete'])->name('admin.size-delete');
+    //////////////////////////////// Contact US ///////////////////////////////////////////////////////////
+    Route::get('contactus', [ContactUsController::class, 'index'])->name('admin.contactus');
+    Route::get('contactus/all-data', [ContactUsController::class, 'show'])->name('contactus-all-data');
+    Route::get('contactus/create', [ContactUsController::class, 'create'])->name('admin.contactus.create');
+    Route::get('contactus/edit/{id}', [ContactUsController::class, 'edit'])->name('admin.contactus.update');
+    Route::post('contactus/add-edit', [ContactUsController::class, 'addEditContactUs'])->name('admin.addEditContactUs');
+    Route::post('contactus/delete', [ContactUsController::class, 'delete'])->name('admin.contactus-delete');
 });
