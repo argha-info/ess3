@@ -43,8 +43,8 @@ class HomeController extends Controller
      */
     public function about()
     {
-        $about = About::where('status', 1)->orderBy('id','desc')->get();
-        return view('about',compact('about'));
+
+        return view('about');
 
     }
 
