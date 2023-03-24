@@ -29,7 +29,8 @@
                 <div class="card">
                     <div class="card-header">
                         <h3 class="card-title">{{ $title ?? '' }}</h3>
-                        <a href="{{ route('admin.product.addVarient', $encryptedId) }}" class="float-right btn btn-info add_role">Add Varient</a>
+                        <a href="{{ route('admin.product.addVarient', $encryptedId) }}"
+                            class="float-right btn btn-info add_role">Add Varient</a>
                     </div>
                     <div class="card-body">
                         <div class="row">
@@ -58,16 +59,18 @@
                                 <p>{{$product->discount_price}}</p>
                             </div>
                         </div>
-                                
+
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
                         <table id="" class="table table-bordered datatable" style="width:100%">
                             <thead>
                                 <tr>
-                                    <th>Product Name</th>
+                                    <th>Color</th>
+                                    <th>Size</th>
                                     <th>Regular Price</th>
                                     <th>Discount Price</th>
+                                    <th>Quantity</th>
                                     <th>Status</th>
                                     <th>Action</th>
                                 </tr>
@@ -139,21 +142,29 @@ $(document).ready(function() {
                 // footer: false
             }
         ],
-        ajax: "{{ route('admin.product-all-data') }}",
+        ajax: "{{ route('admin.product.allVarient', $encryptedId) }}",
         columns: [
             // {data: 'DT_RowIndex', name: 'DT_RowIndex'},
             {
-                data: 'product_name',
-                name: 'Product Name'
+                data: 'color_id',
+                name: 'Color'
+            },
+            {
+                data: 'size_id',
+                name: 'size_id'
             },
             {
                 data: 'regular_price',
-                name: 'Regular Price'
-            },   
+                name: 'regular_Price'
+            },
             {
                 data: 'discount_price',
                 name: 'Discount Price'
-            },   
+            },
+            {
+                data: 'quantity',
+                name: 'Quantity'
+            },
             {
                 data: 'status',
                 name: 'tatus'
