@@ -10,7 +10,7 @@
                 <div class="breadcrumb-inner d-flex justify-content-between">
                     <h2 class="page-title">Product</h2>
                     <ul class="page-list">
-                        <li><a href="index.html">Home</a></li>
+                        <li><a href="{{route('home')}}">Home</a></li>
                         <li>Product Listing</li>
                     </ul>
                 </div>
@@ -49,14 +49,17 @@
                 <div class="tab-content">
                     <div class="tab-pane fade in show active" id="one">
                         <div class="row">
+                            @foreach($categories as $category)
+                            @if($categoryId == $category->id)
+                            @foreach($category->products as $product)
                             <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="product-style-03 margin-top-40">
                                     <div class="thumb">
                                         <img src="{{asset('front/assets/img/leggins_img_1.jpg')}}" alt>
-                                        <ul class="cart-action">
+                                        <!-- <ul class="cart-action">
                                             <li><a href="#"><i class='bx bx-cart'></i></a></li>
                                             <li><a href="#"><i class='bx bx-heart'></i></a></li>
-                                        </ul>
+                                        </ul> -->
                                     </div>
                                     <div class="content text-center">
                                         <span class="brand">Brand: geek</span>
@@ -67,455 +70,26 @@
                                             <li><a href="#"><i class="fa fa-star-o"></i></a></li>
                                             <li><a href="#"><i class="fa fa-star-o"></i></a></li>
                                         </ul>
-                                        <h6 class="title"><a href="#">Faxon Canvas Low-Top Sneaker</a></h6>
+                                        <h6 class="title"><a href="#">{{$product->product_name}}</a></h6>
                                         <div class="content-price d-flex align-self-center justify-content-center">
-                                            <span class="new-price mb-3">$450.00</span>
+                                            <span class="new-price mb-3">@if($product->discount_price)<del>Rs.
+                                                    {{$product->regular_price}}</del> Rs. {{$product->discount_price}}
+                                                @else Rs. {{$product->regular_price}}@endif</span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
-                                <div class="product-style-03 margin-top-40">
-                                    <div class="thumb">
-                                        <img src="{{asset('front/assets/img/leggins_img_2.jpg')}}" alt>
-                                        <span class="new margin-top-35">New</span>
-                                        <ul class="cart-action">
-                                            <li><a href="#"><i class='bx bx-cart'></i></a></li>
-                                            <li><a href="#"><i class='bx bx-heart'></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="content text-center">
-                                        <span class="brand">Brand: geek</span>
-                                        <ul class="justify-content-center margin-bottom-20">
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star-o"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star-o"></i></a></li>
-                                        </ul>
-                                        <h6 class="title"><a href="#">Faxon Canvas Low-Top Sneaker</a></h6>
-                                        <div class="content-price d-flex align-self-center justify-content-center">
-                                            <span class="new-price mb-3">$450.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
-                                <div class="product-style-03 margin-top-40">
-                                    <div class="thumb">
-                                        <img src="{{asset('front/assets/img/leggins_img_3.jpg')}}" alt>
-                                        <span class="new">New</span>
-                                        <ul class="cart-action">
-                                            <li><a href="#"><i class='bx bx-cart'></i></a></li>
-                                            <li><a href="#"><i class='bx bx-heart'></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="content text-center">
-                                        <span class="brand">Brand: geek</span>
-                                        <ul class="justify-content-center margin-bottom-20">
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star-o"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star-o"></i></a></li>
-                                        </ul>
-                                        <h6 class="title"><a href="#">Faxon Canvas Low-Top Sneaker</a></h6>
-                                        <div class="content-price d-flex align-self-center justify-content-center">
-                                            <span class="new-price mb-3">$450.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
-                                <div class="product-style-03 margin-top-40">
-                                    <div class="thumb">
-                                        <img src="{{asset('front/assets/img/leggins_img_4.jpg')}}" alt>
-                                        <span class="out">Sold out</span>
-                                        <ul class="cart-action">
-                                            <li><a href="#"><i class='bx bx-cart'></i></a></li>
-                                            <li><a href="#"><i class='bx bx-heart'></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="content text-center">
-                                        <span class="brand">Brand: geek</span>
-                                        <ul class="justify-content-center margin-bottom-20">
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star-o"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star-o"></i></a></li>
-                                        </ul>
-                                        <h6 class="title"><a href="#">Faxon Canvas Low-Top Sneaker</a></h6>
-                                        <div class="content-price d-flex align-self-center justify-content-center">
-                                            <span class="new-price mb-3">$450.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
-                                <div class="product-style-03 margin-top-40">
-                                    <div class="thumb">
-                                        <img src="{{asset('front/assets/img/leggins_img_5.jpg')}}" alt>
-                                        <ul class="cart-action">
-                                            <li><a href="#"><i class='bx bx-cart'></i></a></li>
-                                            <li><a href="#"><i class='bx bx-heart'></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="content text-center">
-                                        <span class="brand">Brand: geek</span>
-                                        <ul class="justify-content-center margin-bottom-20">
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star-o"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star-o"></i></a></li>
-                                        </ul>
-                                        <h6 class="title"><a href="#">Faxon Canvas Low-Top Sneaker</a></h6>
-                                        <div class="content-price d-flex align-self-center justify-content-center">
-                                            <span class="new-price mb-3">$450.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
-                                <div class="product-style-03 margin-top-40">
-                                    <div class="thumb">
-                                        <img src="{{asset('front/assets/img/leggins_img_6.jpg')}}" alt>
-                                        <ul class="cart-action">
-                                            <li><a href="#"><i class='bx bx-cart'></i></a></li>
-                                            <li><a href="#"><i class='bx bx-heart'></i></a></li>
-                                        </ul>
-                                        <span class="sale">Sale! 13%</span>
-                                        <div class="product-countdown clockdiv" data-countdown="2021/02/02">
-                                        </div>
-                                    </div>
-                                    <div class="content text-center">
-                                        <span class="brand">Brand: geek</span>
-                                        <ul class="justify-content-center margin-bottom-20">
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star-o"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star-o"></i></a></li>
-                                        </ul>
-                                        <h6 class="title"><a href="#">Faxon Canvas Low-Top Sneaker</a></h6>
-                                        <div class="content-price d-flex align-self-center justify-content-center">
-                                            <span class="new-price mb-3">$450.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
-                                <div class="product-style-03 margin-top-40">
-                                    <div class="thumb">
-                                        <img src="{{asset('front/assets/img/leggins_img_7.jpg')}}" alt>
-                                        <ul class="cart-action">
-                                            <li><a href="#"><i class='bx bx-cart'></i></a></li>
-                                            <li><a href="#"><i class='bx bx-heart'></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="content text-center">
-                                        <span class="brand">Brand: geek</span>
-                                        <ul class="justify-content-center margin-bottom-20">
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star-o"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star-o"></i></a></li>
-                                        </ul>
-                                        <h6 class="title"><a href="#">Faxon Canvas Low-Top Sneaker</a></h6>
-                                        <div class="content-price d-flex align-self-center justify-content-center">
-                                            <span class="new-price mb-3">$450.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
-                                <div class="product-style-03 margin-top-40">
-                                    <div class="thumb">
-                                        <img src="{{asset('front/assets/img/leggins_img_8.jpg')}}" alt>
-                                        <span class="new margin-top-35">New</span>
-                                        <ul class="cart-action">
-                                            <li><a href="#"><i class='bx bx-cart'></i></a></li>
-                                            <li><a href="#"><i class='bx bx-heart'></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="content text-center">
-                                        <span class="brand">Brand: geek</span>
-                                        <ul class="justify-content-center margin-bottom-20">
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star-o"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star-o"></i></a></li>
-                                        </ul>
-                                        <h6 class="title"><a href="#">Faxon Canvas Low-Top Sneaker</a></h6>
-                                        <div class="content-price d-flex align-self-center justify-content-center">
-                                            <span class="new-price mb-3">$450.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
-                                <div class="product-style-03 margin-top-40">
-                                    <div class="thumb">
-                                        <img src="{{asset('front/assets/img/leggins_img_9.jpg')}}" alt>
-                                        <span class="new">New</span>
-                                        <ul class="cart-action">
-                                            <li><a href="#"><i class='bx bx-cart'></i></a></li>
-                                            <li><a href="#"><i class='bx bx-heart'></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="content text-center">
-                                        <span class="brand">Brand: geek</span>
-                                        <ul class="justify-content-center margin-bottom-20">
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star-o"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star-o"></i></a></li>
-                                        </ul>
-                                        <h6 class="title"><a href="#">Faxon Canvas Low-Top Sneaker</a></h6>
-                                        <div class="content-price d-flex align-self-center justify-content-center">
-                                            <span class="new-price mb-3">$450.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
-                                <div class="product-style-03 margin-top-40">
-                                    <div class="thumb">
-                                        <img src="{{asset('front/assets/img/leggins_img_10.jpg')}}" alt>
-                                        <span class="out">Sold out</span>
-                                        <ul class="cart-action">
-                                            <li><a href="#"><i class='bx bx-cart'></i></a></li>
-                                            <li><a href="#"><i class='bx bx-heart'></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="content text-center">
-                                        <span class="brand">Brand: geek</span>
-                                        <ul class="justify-content-center margin-bottom-20">
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star-o"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star-o"></i></a></li>
-                                        </ul>
-                                        <h6 class="title"><a href="#">Faxon Canvas Low-Top Sneaker</a></h6>
-                                        <div class="content-price d-flex align-self-center justify-content-center">
-                                            <span class="new-price mb-3">$450.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
-                                <div class="product-style-03 margin-top-40">
-                                    <div class="thumb">
-                                        <img src="{{asset('front/assets/img/leggins_img_11.jpg')}}" alt>
-                                        <ul class="cart-action">
-                                            <li><a href="#"><i class='bx bx-cart'></i></a></li>
-                                            <li><a href="#"><i class='bx bx-heart'></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="content text-center">
-                                        <span class="brand">Brand: geek</span>
-                                        <ul class="justify-content-center margin-bottom-20">
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star-o"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star-o"></i></a></li>
-                                        </ul>
-                                        <h6 class="title"><a href="#">Faxon Canvas Low-Top Sneaker</a></h6>
-                                        <div class="content-price d-flex align-self-center justify-content-center">
-                                            <span class="new-price mb-3">$450.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
-                                <div class="product-style-03 margin-top-40">
-                                    <div class="thumb">
-                                        <img src="{{asset('front/assets/img/leggins_img_12.jpg')}}" alt>
-                                        <ul class="cart-action">
-                                            <li><a href="#"><i class='bx bx-cart'></i></a></li>
-                                            <li><a href="#"><i class='bx bx-heart'></i></a></li>
-                                        </ul>
-                                        <span class="sale">Sale! 13%</span>
-                                    </div>
-                                    <div class="content text-center">
-                                        <span class="brand">Brand: geek</span>
-                                        <ul class="justify-content-center margin-bottom-20">
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star-o"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star-o"></i></a></li>
-                                        </ul>
-                                        <h6 class="title"><a href="#">Faxon Canvas Low-Top Sneaker</a></h6>
-                                        <div class="content-price d-flex align-self-center justify-content-center">
-                                            <span class="new-price mb-3">$450.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
-                                <div class="product-style-03 margin-top-40">
-                                    <div class="thumb">
-                                        <img src="{{asset('front/assets/img/leggins_img_13.jpg')}}" alt>
-                                        <span class="out">Sold out</span>
-                                        <ul class="cart-action">
-                                            <li><a href="#"><i class='bx bx-cart'></i></a></li>
-                                            <li><a href="#"><i class='bx bx-heart'></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="content text-center">
-                                        <span class="brand">Brand: geek</span>
-                                        <ul class="justify-content-center margin-bottom-20">
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star-o"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star-o"></i></a></li>
-                                        </ul>
-                                        <h6 class="title"><a href="#">Faxon Canvas Low-Top Sneaker</a></h6>
-                                        <div class="content-price d-flex align-self-center justify-content-center">
-                                            <span class="new-price mb-3">$450.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
-                                <div class="product-style-03 margin-top-40">
-                                    <div class="thumb">
-                                        <img src="{{asset('front/assets/img/leggins_img_14.jpg')}}" alt>
-                                        <ul class="cart-action">
-                                            <li><a href="#"><i class='bx bx-cart'></i></a></li>
-                                            <li><a href="#"><i class='bx bx-heart'></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="content text-center">
-                                        <span class="brand">Brand: geek</span>
-                                        <ul class="justify-content-center margin-bottom-20">
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star-o"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star-o"></i></a></li>
-                                        </ul>
-                                        <h6 class="title"><a href="#">Faxon Canvas Low-Top Sneaker</a></h6>
-                                        <div class="content-price d-flex align-self-center justify-content-center">
-                                            <span class="new-price mb-3">$450.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
-                                <div class="product-style-03 margin-top-40">
-                                    <div class="thumb">
-                                        <img src="{{asset('front/assets/img/leggins_img_15.jpg')}}" alt>
-                                        <ul class="cart-action">
-                                            <li><a href="#"><i class='bx bx-cart'></i></a></li>
-                                            <li><a href="#"><i class='bx bx-heart'></i></a></li>
-                                        </ul>
-                                        <span class="sale">Sale! 13%</span>
-                                    </div>
-                                    <div class="content text-center">
-                                        <span class="brand">Brand: geek</span>
-                                        <ul class="justify-content-center margin-bottom-20">
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star-o"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star-o"></i></a></li>
-                                        </ul>
-                                        <h6 class="title"><a href="#">Faxon Canvas Low-Top Sneaker</a></h6>
-                                        <div class="content-price d-flex align-self-center justify-content-center">
-                                            <span class="new-price mb-3">$450.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
-                                <div class="product-style-03 margin-top-40">
-                                    <div class="thumb">
-                                        <img src="{{asset('front/assets/img/leggins_img_16.jpg')}}" alt>
-                                        <span class="out">Sold out</span>
-                                        <ul class="cart-action">
-                                            <li><a href="#"><i class='bx bx-cart'></i></a></li>
-                                            <li><a href="#"><i class='bx bx-heart'></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="content text-center">
-                                        <span class="brand">Brand: geek</span>
-                                        <ul class="justify-content-center margin-bottom-20">
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star-o"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star-o"></i></a></li>
-                                        </ul>
-                                        <h6 class="title"><a href="#">Faxon Canvas Low-Top Sneaker</a></h6>
-                                        <div class="content-price d-flex align-self-center justify-content-center">
-                                            <span class="new-price mb-3">$450.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
-                                <div class="product-style-03 margin-top-40">
-                                    <div class="thumb">
-                                        <img src="{{asset('front/assets/img/leggins_img_17.jpg')}}" alt>
-                                        <ul class="cart-action">
-                                            <li><a href="#"><i class='bx bx-cart'></i></a></li>
-                                            <li><a href="#"><i class='bx bx-heart'></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="content text-center">
-                                        <span class="brand">Brand: geek</span>
-                                        <ul class="justify-content-center margin-bottom-20">
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star-o"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star-o"></i></a></li>
-                                        </ul>
-                                        <h6 class="title"><a href="#">Faxon Canvas Low-Top Sneaker</a></h6>
-                                        <div class="content-price d-flex align-self-center justify-content-center">
-                                            <span class="new-price mb-3 ">$450.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
-                                <div class="product-style-03 margin-top-40">
-                                    <div class="thumb">
-                                        <img src="{{asset('front/assets/img/leggins_img_18.jpg')}}" alt>
-                                        <ul class="cart-action">
-                                            <li><a href="#"><i class='bx bx-cart'></i></a></li>
-                                            <li><a href="#"><i class='bx bx-heart'></i></a></li>
-                                        </ul>
-                                        <span class="sale">Sale! 13%</span>
-                                    </div>
-                                    <div class="content text-center">
-                                        <span class="brand">Brand: geek</span>
-                                        <ul class="justify-content-center margin-bottom-20">
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star-o"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star-o"></i></a></li>
-                                        </ul>
-                                        <h6 class="title"><a href="#">Faxon Canvas Low-Top Sneaker</a></h6>
-                                        <div class="content-price d-flex align-self-center justify-content-center">
-                                            <span class="new-price mb-3">$450.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
+                            @endif
+                            @endforeach
+
+
                         </div>
                     </div>
                     <div class="tab-pane fade list-item" id="two">
+                        @foreach($categories as $category)
+                        @if($categoryId == $category->id)
+                        @foreach($category->products as $product)
                         <div class="row product-style-03 margin-top-40">
                             <div class="col-md-4 col-sm-12 col-12">
                                 <div class="thumb mb-3">
@@ -524,9 +98,11 @@
                             </div>
                             <div class="col-md-8 col-sm-12 col-12">
                                 <div class="content">
-                                    <h6 class="title"><a href="#">Faxon Canvas Low-Top Sneaker</a></h6>
+                                    <h6 class="title"><a href="#">{{$product->product_name}}</a></h6>
                                     <div class="content-price d-flex align-self-center">
-                                        <span class="new-price">$450.00</span>
+                                        <span class="new-price">@if($product->discount_price)<del>Rs.
+                                                    {{$product->regular_price}}</del> Rs. {{$product->discount_price}}
+                                                @else Rs. {{$product->regular_price}}@endif</span>
                                     </div>
                                     <ul class="margin-bottom-10">
                                         <li><a href="#"><i class="fa fa-star"></i></a></li>
@@ -535,8 +111,7 @@
                                         <li><a href="#"><i class="fa fa-star-o"></i></a></li>
                                         <li><a href="#"><i class="fa fa-star-o"></i></a></li>
                                     </ul>
-                                    <p>Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
-                                        publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                                    <p>{{$product->short_description}}</p>
                                     <div class="btn-wrapper margin-top-20">
                                         <div class="add-to-cart">
                                             <a href="#"><i class='bx bx-cart'></i> Add to cart</a>
@@ -548,198 +123,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row product-style-03 margin-top-40">
-                            <div class="col-md-4 col-sm-12 col-12">
-                                <div class="thumb mb-3">
-                                    <img src="{{asset('front/assets/img/leggins_img_2.jpg')}}" alt>
-                                </div>
-                            </div>
-                            <div class="col-md-8 col-sm-12 col-12">
-                                <div class="content">
-                                    <h6 class="title"><a href="#">Faxon Canvas Low-Top Sneaker</a></h6>
-                                    <div class="content-price d-flex align-self-center">
-                                        <span class="new-price">$450.00</span>
-                                    </div>
-                                    <ul class="margin-bottom-10">
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star-o"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star-o"></i></a></li>
-                                    </ul>
-                                    <p>Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
-                                        publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                                    <div class="btn-wrapper margin-top-20">
-                                        <div class="add-to-cart">
-                                            <a href="#"><i class='bx bx-cart'></i>Add to cart</a>
-                                        </div>
-                                        <div class="add-to-wishlist">
-                                            <i class='bx bx-heart'></i> Add to Wishlist</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row product-style-03 margin-top-40">
-                            <div class="col-md-4 col-sm-12 col-12">
-                                <div class="thumb mb-3">
-                                    <img src="{{asset('front/assets/img/leggins_img_3.jpg')}}" alt>
-                                </div>
-                            </div>
-                            <div class="col-md-8 col-sm-12 col-12">
-                                <div class="content">
-                                    <h6 class="title"><a href="#">Faxon Canvas Low-Top Sneaker</a></h6>
-                                    <div class="content-price d-flex align-self-center">
-                                        <span class="new-price">$450.00</span>
-                                    </div>
-                                    <ul class="margin-bottom-10">
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star-o"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star-o"></i></a></li>
-                                    </ul>
-                                    <p>Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
-                                        publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                                    <div class="btn-wrapper margin-top-20">
-                                        <div class="add-to-cart">
-                                            <a href="#"><i class='bx bx-cart'></i> Add to cart</a>
-                                        </div>
-                                        <div class="add-to-wishlist">
-                                            <a href="#"><i class='bx bx-heart'></i> Add to Wishlist</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row product-style-03 margin-top-40">
-                            <div class="col-md-4 col-sm-12 col-12">
-                                <div class="thumb mb-3">
-                                    <img src="{{asset('front/assets/img/leggins_img_4.jpg')}}" alt>
-                                </div>
-                            </div>
-                            <div class="col-md-8 col-sm-12 col-12">
-                                <div class="content">
-                                    <h6 class="title"><a href="#">Faxon Canvas Low-Top Sneaker</a></h6>
-                                    <div class="content-price d-flex align-self-center">
-                                        <span class="new-price">$450.00</span>
-                                    </div>
-                                    <ul class="margin-bottom-10">
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star-o"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star-o"></i></a></li>
-                                    </ul>
-                                    <p>Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
-                                        publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                                    <div class="btn-wrapper margin-top-20">
-                                        <div class="add-to-cart">
-                                            <a href="#"><i class='bx bx-cart'></i> Add to cart</a>
-                                        </div>
-                                        <div class="add-to-wishlist">
-                                            <a href="#"><i class='bx bx-heart'></i>Add to Wishlist</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row product-style-03 margin-top-40">
-                            <div class="col-md-4 col-sm-12 col-12">
-                                <div class="thumb mb-3">
-                                    <img src="{{asset('front/assets/img/leggins_img_5.jpg')}}" alt>
-                                </div>
-                            </div>
-                            <div class="col-md-8 col-sm-12 col-12">
-                                <div class="content">
-                                    <h6 class="title"><a href="#">Faxon Canvas Low-Top Sneaker</a></h6>
-                                    <div class="content-price d-flex align-self-center">
-                                        <span class="new-price">$450.00</span>
-                                    </div>
-                                    <ul class="margin-bottom-10">
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star-o"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star-o"></i></a></li>
-                                    </ul>
-                                    <p>Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
-                                        publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                                    <div class="btn-wrapper margin-top-20">
-                                        <div class="add-to-cart">
-                                            <a href="#"><i class='bx bx-cart'></i> Add to cart</a>
-                                        </div>
-                                        <div class="add-to-wishlist">
-                                            <a href="#"><i class='bx bx-heart'></i>Add to Wishlist</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row product-style-03 margin-top-40">
-                            <div class="col-md-4 col-sm-12 col-12">
-                                <div class="thumb mb-3">
-                                    <img src="{{asset('front/assets/img/leggins_img_6.jpg')}}" alt>
-                                </div>
-                            </div>
-                            <div class="col-md-8 col-sm-12 col-12">
-                                <div class="content">
-                                    <h6 class="title"><a href="#">Faxon Canvas Low-Top Sneaker</a></h6>
-                                    <div class="content-price d-flex align-self-center">
-                                        <span class="new-price">$450.00</span>
-                                    </div>
-                                    <ul class="margin-bottom-10">
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star-o"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star-o"></i></a></li>
-                                    </ul>
-                                    <p>Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
-                                        publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                                    <div class="btn-wrapper margin-top-20">
-                                        <div class="add-to-cart">
-                                            <a href="#"><i class='bx bx-cart'></i> Add to cart</a>
-                                        </div>
-                                        <div class="add-to-wishlist">
-                                            <a href="#"><i class='bx bx-heart'></i>Add to Wishlist</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row product-style-03 margin-top-40">
-                            <div class="col-md-4 col-sm-12 col-12">
-                                <div class="thumb">
-                                    <img src="{{asset('front/assets/img/leggins_img_7.jpg')}}" alt>
-                                </div>
-                            </div>
-                            <div class="col-md-8 col-sm-12 col-12">
-                                <div class="content">
-                                    <h6 class="title"><a href="#">Faxon Canvas Low-Top Sneaker</a></h6>
-                                    <div class="content-price d-flex align-self-center">
-                                        <span class="new-price">$450.00</span>
-                                    </div>
-                                    <ul class="margin-bottom-10">
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star-o"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star-o"></i></a></li>
-                                    </ul>
-                                    <p>Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
-                                        publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                                    <div class="btn-wrapper margin-top-20">
-                                        <div class="add-to-cart">
-                                            <a href="#"><i class='bx bx-cart'></i>Add to cart</a>
-                                        </div>
-                                        <div class="add-to-wishlist">
-                                            <a href="#"><i class='bx bx-heart'></i>Add to Wishlist</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
+                        @endif
+                        @endforeach
+                        
+
                     </div>
                 </div>
                 <div class="row">
@@ -776,28 +164,16 @@
                                 data-parent="#accordionExample1">
                                 <div class="card-body">
                                     <form action="#">
+                                        @foreach($categories as $category)
                                         <div class="custom-control custom-checkbox mb-3">
-                                            <input type="checkbox" class="custom-control-input">
-                                            <label class="custom-control-label" for="customCheck">Leggins [124]</label>
+                                            <input type="checkbox" class="custom-control-input"
+                                                @if($categoryId==$category->id) checked @endif>
+                                            <a href="{{route('product-list', encrypt($category->id))}}"><label
+                                                    class="custom-control-label"
+                                                    for="customCheck">{{$category->category_name}}
+                                                    [{{$category->products->count()}}]</label></a>
                                         </div>
-                                        <div class="custom-control custom-checkbox mb-3">
-                                            <input type="checkbox" class="custom-control-input">
-                                            <label class="custom-control-label" for="customCheck2">Jeggings
-                                                [293]</label>
-                                        </div>
-                                        <div class="custom-control custom-checkbox mb-3">
-                                            <input type="checkbox" class="custom-control-input">
-                                            <label class="custom-control-label" for="customCheck3">Palazzo [125]</label>
-                                        </div>
-                                        <div class="custom-control custom-checkbox mb-3">
-                                            <input type="checkbox" class="custom-control-input">
-                                            <label class="custom-control-label" for="customCheck4">Kurti [698]</label>
-                                        </div>
-                                        <div class="custom-control custom-checkbox mb-3">
-                                            <input type="checkbox" class="custom-control-input">
-                                            <label class="custom-control-label" for="customCheck5">Joggers
-                                                [12456]</label>
-                                        </div>
+                                        @endforeach
                                     </form>
                                 </div>
                             </div>

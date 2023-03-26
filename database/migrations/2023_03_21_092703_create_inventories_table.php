@@ -24,11 +24,12 @@ class CreateInventoriesTable extends Migration
             $table->unsignedBigInteger('size_id');
             $table->foreign('size_id')->references('id')->on('sizes')->onDelete('cascade');
 
-            $table->decimal('regular_price', 5, 2)->nullable();
-            $table->decimal('discount_price', 5, 2)->nullable();
-            $table->integer('quantity');
+            $table->string('regular_price')->nullable();
+            $table->string('discount_price')->nullable();
+            $table->string('quantity');
 
             $table->boolean('status')->dedault(0)->comment('0=inactive,1=active');
+            $table->uuid('created_by')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

@@ -104,10 +104,12 @@ class CategoryController extends Controller
             try{
                 if($request->opt_type=='edit'){
                     $input  = $request->except(['_token','opt_type','old_banner','id']);
+                    $input['created_by'] = Auth::user()->id;
                 }
                 if($request->opt_type=='add'){
                     $input  = $request->except(['_token','opt_type','old_banner','id']);
                     $input['catid'] = Helpers::createID('category');
+                    $input['created_by'] = Auth::user()->id;
                 }
 
 
@@ -140,7 +142,7 @@ class CategoryController extends Controller
                     $message = 'Category Updated Successfully.';
                 }else{
 
-                    Category::insert($input);
+                    Category::create($input);
                     $message = 'Category Added Successfully.';
                 }
                 $return_data['success'] = 1;
@@ -166,5 +168,21 @@ class CategoryController extends Controller
         $data   = compact('title','subTitle','active','subActive','category');
         return view('admin.category.addedit', $data);
 
+    }
+    public function delete(Request $request){
+        $encDeleteId = $request->input('deleteId');
+        $deleteId = decrypt($encDeleteId);
+        try{
+            Category::find($deleteId)->delete();
+            $message = 'Category deleted successfully!';
+            $return_data['success'] = 1;
+            $return_data['success_message'] = $message;
+            DB::commit();
+        }catch ( \Exception $e){
+            DB::rollback();
+            $return_data['success'] = 0;
+            $return_data['error_message'] = $e->Getmessage();
+        }
+        return response()->json($return_data);
     }
 }

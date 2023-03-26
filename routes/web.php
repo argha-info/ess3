@@ -34,15 +34,23 @@ use App\Http\Controllers\FrontendProductController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
-Route::get('/product-list', [FrontendProductController::class, 'index'])->name('product-list');
-// Auth::routes();
+Route::get('/product-list/{id}', [FrontendProductController::class, 'index'])->name('product-list');
+
+Auth::routes([
+    'register' => false, // Laravel default Registration Routes off
+    'reset' => false, // Laravel default Password Reset Routes off
+    'verify' => false, // Laravel default Email Verification Routes off
+    'login' => false, //  Laravel default Login Routes off
+    'logout' => false
+  ]);
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('admin-login',[LoginController::class,'adminLogin']);
+Route::get('admin-login',[LoginController::class,'adminLogin'])->name('admin-login');
 Route::post('admin-login',[LoginController::class,'adminAuthentication']);
+Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
-Route::prefix('admin')->middleware('checkadminauth')->group(function(){
+Route::prefix('admin')->middleware('preventBackHistory', 'checkadminauth')->group(function(){
     Route::get('home', [AdminController::class, 'dashboard']);
     Route::get('dashboard', [AdminController::class, 'dashboard']);
 
@@ -52,6 +60,7 @@ Route::prefix('admin')->middleware('checkadminauth')->group(function(){
     Route::get('category/create', [CategoryController::class, 'create'])->name('admin.category.create');
     Route::get('category/edit/{id}', [CategoryController::class, 'edit'])->name('admin.category.update');
     Route::post('category-add-edit', [CategoryController::class, 'addEditCategory'])->name('admin.addEditCategory');
+    Route::post('category/delete', [CategoryController::class, 'delete'])->name('admin.category.delete');
 
     ////////////////////////////// Banner Section /////////////////////////
     Route::get('banner', [BannerController::class, 'index'])->name('admin.banner');
@@ -115,3 +124,8 @@ Route::prefix('admin')->middleware('checkadminauth')->group(function(){
     Route::post('contactus/add-edit', [ContactUsController::class, 'addEditContactUs'])->name('admin.addEditContactUs');
     Route::post('contactus/delete', [ContactUsController::class, 'delete'])->name('admin.contactus-delete');
 });
+
+Route::any('{url}', function(){
+    // return abort(404);
+    return redirect()->route('home');
+})->where('url', '.*');

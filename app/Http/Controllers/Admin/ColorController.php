@@ -54,7 +54,7 @@ class ColorController extends Controller
     }
 
     public function show(){
-        $data = Color::orderBy('created_at', 'desc')->get();
+        $data = Color::orderBy('id', 'desc')->get();
 
         return Datatables::of($data)
             ->addIndexColumn()
@@ -101,11 +101,12 @@ class ColorController extends Controller
 
                 if($request->opt_type=='edit'){
                     $input  = $request->except(['_token','opt_type',"id"]);
+                    $input['created_by'] = Auth::user()->id;
                 }
                 if($request->opt_type=='add'){
                     $input  = $request->except(['_token','opt_type',"id"]);
+                    $input['created_by'] = Auth::user()->id;
                 }
-                //  $input['created_at'] = Auth::user()->id;
 
 
                 if($request->opt_type=='edit'){
@@ -113,15 +114,13 @@ class ColorController extends Controller
 
                      $input['updated_at']   = date('Y-m-d H:i:s');
 
-                    // $advertisement = NewArrivals::find($id);
-                    // $advertisement->update($input);
                     $update = Color::where('id',$id)->update($input);
 
-                    $message = 'Color updated Successfully.';
+                    $message = 'Color updated successfully.';
                 }else{
 
                     Color::create($input);
-                    $message = 'Color Added Successfully.';
+                    $message = 'Color added successfully.';
                 }
                 $return_data['success'] = 1;
                 $return_data['success_message'] = $message;
@@ -155,7 +154,7 @@ class ColorController extends Controller
         $deleteId = decrypt($encDeleteId);
         try{
             Color::find($deleteId)->delete();
-            $message = 'About deleted successfully!';
+            $message = 'Color deleted successfully!';
             $return_data['success'] = 1;
             $return_data['success_message'] = $message;
             DB::commit();

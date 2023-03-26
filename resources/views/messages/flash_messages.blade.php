@@ -9,7 +9,7 @@
 @endif
 @if ($errors->any())
 <div class="alert alert-danger full float-none" id="displayErrorMessage">
-	<ul>
+	<ul style="margin-bottom: 0rem;">
 		@foreach ($errors->all() as $error)
 		<li>{{ $error }}</li>
 		@endforeach

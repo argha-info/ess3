@@ -1,3 +1,4 @@
+<?php #dd($categories);?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -53,13 +54,13 @@
                     <li><a class="nav-link scrollto active" href="{{url('/')}}">Home</a></li>
                     <li class="dropdown"><a href="#"><span>Category</span> <i class="bi bi-chevron-down"></i></a>
                         <ul>
-                            <li><a href="{{route('product-list')}}">Leggings</a></li>
-                            <li><a href="{{route('product-list')}}">Jeggings</a></li>
-                            <li><a href="{{route('product-list')}}">Plazo</a></li>
-                            <li><a href="{{route('product-list')}}">Kurtis</a></li>
+                            @foreach($categories as $category)
+                                <li><a href="{{route('product-list', encrypt($category->id))}}">{{$category->category_name}}</a></li>
+                            @endforeach
+                           
                         </ul>
                     </li>
-                    <li><a class="nav-link scrollto" href="{{route('product-list')}}">Featured Products</a></li>
+                    <li><a class="nav-link scrollto" href="#">Featured Products</a></li>
                     <li><a class="nav-link scrollto" href="#">Portfolio</a></li>
                     <li><a class="nav-link scrollto" href="#">Articles</a></li>
                     <li><a class="nav-link scrollto" href="{{url('/about')}}">About Us</a></li>
@@ -90,7 +91,7 @@
 
                     <div class="col-lg-3 col-md-6 footer-info">
                         <h3>About Us</h3>
-                        <p>{{$about->content}}</p>
+                        <p>{{$about->content ?? ''}}</p>
 
 
                     </div>
@@ -118,14 +119,14 @@
                     <div class="col-lg-3 col-md-6 footer-info">
                         <h4>Get In Touch</h4>
                         <p><img src="{{ asset('front/assets/img/ic-1.png') }}" alt="Ic">
-                        {{$contact->location}}
+                        {{$contact->location ?? ''}}
                         </p>
                         <p><img src="{{ asset('front/assets/img/ic-2.png') }}" alt="Ic"><a
-                                href="tel:06291579939">{{$contact->company_phone}}</a></p>
+                                href="tel:06291579939">{{$contact->company_phone ?? ''}}</a></p>
                         <p><img src="{{ asset('front/assets/img/ic-3.png') }}" alt="Ic"><a
-                                href="mailto:emailaddress@domain.com"> {{$contact->email}}</a></p>
+                                href="mailto:emailaddress@domain.com"> {{$contact->email ?? ''}}</a></p>
                         <p><img src="{{ asset('front/assets/img/ic-4.png') }}" alt="Ic"><a
-                                href="https://ess3.co.in"> {{$contact->weblink}}</a></p>
+                                href="https://ess3.co.in"> https://ess3.co.in </a></p>
 
 
                     </div>
@@ -137,10 +138,10 @@
         <div class="container">
             <div class="copyright">
                 <div class="social-links mb-3">
-                    <a href="{{$contact->facebook_link}}" class="facebook"><i class="fa fa-facebook"></i></a>
-                    <a href="{{$contact->twitter_link}}" class="twitter"><i class="fa fa-twitter"></i></a>
-                    <a href="{{$contact->instagram_link}}" class="instagram"><i class="fa fa-instagram"></i></a>
-                    <a href="{{$contact->youtube_link}}" class="youtube"><i class="fa fa-youtube"></i></a>
+                    <a href="{{$contact->facebook_link ?? ''}}" class="facebook"><i class="fa fa-facebook"></i></a>
+                    <a href="{{$contact->twitter_link ?? ''}}" class="twitter"><i class="fa fa-twitter"></i></a>
+                    <a href="{{$contact->instagram_link ?? ''}}" class="instagram"><i class="fa fa-instagram"></i></a>
+                    <a href="{{$contact->youtube_link ?? ''}}" class="youtube"><i class="fa fa-youtube"></i></a>
                 </div>
                 &copy; Copyright 2023 <strong><span>ESS3</span></strong>. All Rights Reserved.
             </div>

@@ -21,6 +21,7 @@ class CreateNewarrivalsTable extends Migration
             $table->text('newarrivals_link');
             $table->text('newarrivals');
             $table->boolean('status')->dedault(0)->comment('0=inactive,1=active');
+            $table->uuid('created_by')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

@@ -90,6 +90,7 @@ class ProductController extends Controller
         $data['regular_price'] = $request['regular_price'];
         $data['discount_price'] = $request['discount_price'];
         $data['status'] = $request['status'];
+        $data['created_by'] = Auth::user()->id;
 
         $create = Product::create($data);
 

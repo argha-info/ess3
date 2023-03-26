@@ -18,6 +18,7 @@ class CreateColorsTable extends Migration
             $table->string('color_name');
             $table->string('color_code');
             $table->boolean('status')->dedault(0)->comment('0=inactive,1=active');
+            $table->uuid('created_by')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

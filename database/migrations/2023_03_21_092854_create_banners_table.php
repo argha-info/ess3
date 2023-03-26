@@ -23,6 +23,7 @@ class CreateBannersTable extends Migration
             $table->text('banner_link');
             $table->text('banner');
             $table->boolean('status')->dedault(0)->comment('0=inactive,1=active');
+            $table->uuid('created_by')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

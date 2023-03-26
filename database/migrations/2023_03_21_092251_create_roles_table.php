@@ -17,6 +17,7 @@ class CreateRolesTable extends Migration
             $table->id();
             $table->string('name');
             $table->tinyInteger('status')->default(1);
+            $table->uuid('created_by')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

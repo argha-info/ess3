@@ -40,7 +40,7 @@ class BannerController extends Controller
     }
 
     public function show(){
-        $data = Banner::orderBy('created_at', 'desc')->get();
+        $data = Banner::orderBy('id', 'desc')->get();
 
         return Datatables::of($data)
             ->addIndexColumn()
@@ -122,10 +122,12 @@ class BannerController extends Controller
             try{
                 if($request->opt_type=='edit'){
                     $input  = $request->except(['_token','opt_type','old_banner', 'id']);
+                    $input['created_by'] = Auth::user()->id;
                 }
                 if($request->opt_type=='add'){
                     $input  = $request->except(['_token','opt_type','old_banner','id']);
                     $input['bannerid'] = Helpers::createID('banner');
+                    $input['created_by'] = Auth::user()->id;
                 }
                 
                 $input['banner_link'] = ($request->banner_link!='')?$request->banner_link:'';
@@ -154,14 +156,12 @@ class BannerController extends Controller
 
                     $input['updated_at']   = date('Y-m-d H:i:s');
 
-                    // $advertisement = Banner::find($id);
-                    // $advertisement->update($input);
                     $update = Banner::where('id',$id)->update($input);
 
                     $message = 'Banner updated Successfully.';
                 }else{
 
-                    Banner::insert($input);
+                    Banner::create($input);
                     $message = 'Banner Added Successfully.';
                 }
                 $return_data['success'] = 1;

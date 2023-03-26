@@ -20,9 +20,11 @@ class CreateProductsTable extends Migration
             $table->text('short_description');
             $table->longText('product_specification');
             $table->longText('manufacturer_details');
-            $table->decimal('regular_price', 5, 2)->nullable();
-            $table->decimal('discount_price', 5, 2)->nullable();
+            $table->string('regular_price')->nullable();
+            $table->string('discount_price')->nullable();
+            $table->text('image')->nullable();
             $table->boolean('status')->dedault(0)->comment('0=Unpublished,1=Published');
+            $table->uuid('created_by')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

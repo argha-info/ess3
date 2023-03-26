@@ -22,6 +22,7 @@ class CreateHomeaboutTable extends Migration
             $table->text('about_link');
             $table->text('homeabout');
             $table->boolean('status')->dedault(0)->comment('0=inactive,1=active');
+            $table->uuid('created_by')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

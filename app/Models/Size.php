@@ -13,6 +13,7 @@ class Size extends Model
     protected $fillable = [
         "size_name",
         "status",
+        'created_by',
         "created_at",
         "updated_at"
     ];

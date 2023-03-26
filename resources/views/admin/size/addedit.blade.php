@@ -26,7 +26,7 @@
                       <div class="col-md-6">
                         <div class="form-group">
                           <label for="title">Size Name</label>
-                          <input type="text" name="size_name" class="form-control" id="size_name" placeholder="Enter Color Name" value="{{old('title', isset($size) ? $size->size_name : '')}}" required>
+                          <input type="text" name="size_name" class="form-control" id="size_name" placeholder="Enter size" value="{{old('title', isset($size) ? $size->size_name : '')}}" required>
                         </div>
                         <div class="form-group">
                           <label for="drpStatus">Status</label>

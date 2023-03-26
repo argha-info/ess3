@@ -21,4 +21,9 @@ class Category extends Model
         "created_at",
         "updated_at"
     ];
+
+    public function products()
+    {
+        return $this->belongsToMany(\App\Models\Product::class,'product_categories', 'category_id', 'product_id');
+    }
 }

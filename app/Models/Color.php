@@ -14,6 +14,7 @@ class Color extends Model
         "color_name",
         "color_code",
         "status",
+        'created_by',
         "created_at",
         "updated_at"
     ];

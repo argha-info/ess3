@@ -45,11 +45,11 @@
             <div class="row no-gutters">
                 <div class="col-lg-6">
                     @foreach($homeabout as $homeabout)
-                    @if ($banner->status ==1)
+                    
                     @if($homeabout->homeabout !='' &&
                     file_exists(public_path('uploads/homeabout/'.$homeabout->homeabout)))
                     @php $imagePath = asset('uploads/homeabout/'.$homeabout->homeabout); @endphp
-                    @endif
+                   
                     <img src="{{$imagePath}}" class="img-fluid" alt="" width="100%">
 
                 </div>
@@ -92,14 +92,14 @@
                         @php $imagePath = asset('uploads/newarrivals/'.$newarrivals->newarrivals); @endphp
                         @endif
                         <div class="slider arrival-slider">
-                            @for($i=0;$i<=4;$i++) 
-                            <img src="{{$imagePath}}" alt="Img" />
+                            @for($i=0;$i
+                            <=4;$i++) <img src="{{$imagePath}}" alt="Img" />
                             @endfor
                             {{-- <img src="{{url('frontend/img/arrival-slider-mg-1.png')}}" alt="Img" />
                             <img src="{{url('frontend/img/arrival-slider-mg-1.png')}}" alt="Img" />
                             <img src="{{url('frontend/img/arrival-slider-mg-1.png')}}" alt="Img" />
                             <img src="{{url('frontend/img/arrival-slider-mg-1.png')}}" alt="Img" /> --}}
-                            
+
                         </div>
 
                         @endif
@@ -110,4 +110,69 @@
             </div>
         </div>
     </section>
+
+
+
+
+    <!-- ======= Our Portfolio Section ======= -->
+    <section id="portfolio" class="portfolio section-bg">
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
+            <div class="section-title">
+                <h2>Products gallery</h2>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul id="portfolio-flters">
+                        <li data-filter="*" class="filter-active">All</li>
+                        @foreach($categories as $category)
+                        <li data-filter=".filter-{{$category->category_name}}">{{$category->category_name}}</li>
+                        @endforeach
+                        <!-- <li data-filter=".filter-palazzo">Palazzo</li>
+                        <li data-filter=".filter-leggins">leggins</li>
+                        <li data-filter=".filter-kurti">kurti</li>
+                        <li data-filter=".filter-jeggings">jeggings</li>
+                        <li data-filter=".filter-capris">capris</li> -->
+                    </ul>
+                </div>
+            </div>
+
+            <div class="row portfolio-container">
+
+                @foreach($categories as $category)
+                @foreach($category->products as $product)
+
+                <div class="col-lg-3 col-md-3 portfolio-item filter-{{$category->category_name}}">
+                    <div class="portHolder">
+                        <div class="portfolio-wrap">
+                            <img src="{{asset('front/assets/img/portfolio/palazzo-1.png')}}" class="img-fluid" alt="">
+                            <a href="{{asset('front/assets/img/portfolio/palazzo-1.png')}}"
+                                data-gallery="portfolioGallery" class="portfolio-lightbox" title="palazzo"><i
+                                    class="bi bi-arrows-move"></i></a>
+                            <div class="portfolio-info">
+                                <h4>{{$category->category_name}}</h4>
+                                <p>{{$product->short_description}}</p>
+
+                            </div>
+
+                        </div>
+                        <h3><a href="">{{$product->product_name}}</a></h3>
+
+                    </div>
+                </div>
+                @endforeach
+                @endforeach
+
+
+                
+
+            </div>
+
+            <a href="#" class="viewBtn2">view all</a>
+        </div>
+    </section><!-- End Our Portfolio Section -->
+
+
+
+
     @endsection

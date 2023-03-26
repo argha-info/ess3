@@ -38,7 +38,6 @@
                             <thead>
                                 <tr>
                                     <th>Category Name</th>
-                                    <th>Parent Name</th>
                                     <th>Status</th>
                                     <th>Action</th>
                                 </tr>
@@ -118,11 +117,6 @@ $(document).ready(function() {
                 name: 'Category Name'
             },
             {
-                data: 'parent',
-                name: 'Parent Name'
-            },   
-           
-            {
                 data: 'status',
                 name: 'status'
             },
@@ -154,7 +148,7 @@ $(document).ready(function() {
             function() {
                 $.ajax({
                     type: 'POST',
-                    url: "",
+                    url: "{{route('admin.category.delete')}}",
                     async: false,
                     data: {
                         "deleteId": deleteId,

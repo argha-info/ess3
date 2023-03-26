@@ -71,9 +71,9 @@ class LoginController extends Controller
         }
 
         $messsages = array(
-            'email.required'    => __('allValidation.emailError'),
-            'email.email'       => __('allValidation.emailEmail'),
-            'password.required' => __('allValidation.passwordError'),
+            'email.required'    => 'Please enter email address.',
+            'email.email'       => 'Please enter correct email address.',
+            'password.required' => 'Please enter password.',
         );
 
         $rules = array(
@@ -92,19 +92,16 @@ class LoginController extends Controller
                 //'user_type' => '1'
             ];
             
-           //echo '<pre>'.print_r($data,1).'</pre>';die;
             if (Auth::attempt($data,$remember)){
-             
-                // if(Auth::user()->user_type == '1'){
-                    
-                // }else{
-                //     return back()->withInput()->withErrors(['error'=> __('allValidation.emailPasserror')]);
-                // }
                 Session::put('role_id',Auth::user()->role_id);
                 return redirect('admin/dashboard');
             }else{
-                return back()->withInput()->withErrors(['error'=> __('allValidation.emailPasserror')]);
+                return back()->withInput()->withErrors(['error'=> 'Please enter vaild credential.']);
             }
         }
+    }
+    public function logout(Request $request) {
+        Auth::logout();
+        return redirect('/admin-login');
     }
 }

@@ -28,7 +28,6 @@ class SizeController extends Controller
      */
     public function index()
     {
-        // Helpers::isModuleOptAllowed($this->newarrivalsId,'3');
         $title          = "Size";
         $breadcumbs     = "List Size";
         $active         = 'size';
@@ -54,7 +53,7 @@ class SizeController extends Controller
     }
 
     public function show(){
-        $data = Size::orderBy('created_at', 'desc')->get();
+        $data = Size::orderBy('id', 'desc')->get();
 
         return Datatables::of($data)
             ->addIndexColumn()
@@ -98,11 +97,12 @@ class SizeController extends Controller
 
                 if($request->opt_type=='edit'){
                     $input  = $request->except(['_token','opt_type',"id"]);
+                    $input['created_by'] = Auth::user()->id;
                 }
                 if($request->opt_type=='add'){
                     $input  = $request->except(['_token','opt_type',"id"]);
+                    $input['created_by'] = Auth::user()->id;
                 }
-                //  $input['created_at'] =
 
 
                 if($request->opt_type=='edit'){
@@ -110,8 +110,6 @@ class SizeController extends Controller
 
                      $input['updated_at']   = date('Y-m-d H:i:s');
 
-                    // $advertisement = NewArrivals::find($id);
-                    // $advertisement->update($input);
                     $update = Size::where('id',$id)->update($input);
 
                     $message = 'Size updated successfully.';

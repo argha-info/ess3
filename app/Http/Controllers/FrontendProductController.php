@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 
 class FrontendProductController extends Controller
 {
-    public function index(){
-        return view('product-list');
+    public function index($id){
+        $categoryId = decrypt($id);
+        return view('product-list', compact('categoryId'));
     }
 }
